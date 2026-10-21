@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>庐山畔山隐舍度假酒店 · 酒店知识卡</title>
+<style>
+  :root{
+    --navy:#16324f;
+    --navy-2:#274b6d;
+    --gold:#b8934a;
+    --ink:#2b2f33;
+    --gray:#6b7280;
+    --line:#e3e7ec;
+    --bg:#f7f8fa;
+    --accent-bg:#eef3f8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.75;font-size:15px;
+  }
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+
+  /* ===== 顶部导航 ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(22,50,79,.92);backdrop-filter:blur(8px);
+    display:flex;align-items:center;gap:26px;
+    padding:0 max(4vw,24px);height:56px;
+  }
+  nav .logo{color:#fff;font-weight:600;letter-spacing:2px;font-size:15px;margin-right:auto;white-space:nowrap;}
+  nav a{color:rgba(255,255,255,.75);font-size:13.5px;letter-spacing:1px;padding:4px 0;border-bottom:2px solid transparent;transition:.2s;}
+  nav a:hover{color:#fff;border-color:var(--gold);}
+  @media (max-width:760px){nav{gap:14px;overflow-x:auto;}nav .logo{font-size:13px;}}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;min-height:78vh;
+    background:#16324f url('hotel-images/09-facade.jpg') center/cover no-repeat;
+    display:flex;align-items:flex-end;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(22,50,79,.15) 0%,rgba(22,50,79,.35) 55%,rgba(15,32,50,.88) 100%);
+  }
+  .hero-inner{
+    position:relative;z-index:2;width:100%;
+    max-width:1080px;margin:0 auto;padding:56px max(4vw,24px) 60px;color:#fff;
+  }
+  .hero .tagline{font-size:13px;letter-spacing:6px;color:var(--gold);margin-bottom:14px;}
+  .hero h1{font-size:clamp(26px,4.6vw,44px);letter-spacing:3px;font-weight:600;line-height:1.35;}
+  .hero .en{font-size:13px;letter-spacing:3px;color:rgba(255,255,255,.65);margin-top:8px;}
+  .hero-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center;}
+  .badge{
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);
+    color:#fff;padding:7px 16px;border-radius:3px;font-size:13px;letter-spacing:2px;
+  }
+  .badge.gold{background:var(--gold);border-color:var(--gold);font-weight:600;}
+  .badge.score b{font-size:17px;color:var(--gold);}
+  .hero-note{margin-top:18px;font-size:13.5px;color:rgba(255,255,255,.78);letter-spacing:1px;}
+
+  /* ===== 通用区块 ===== */
+  section{max-width:1080px;margin:0 auto;padding:64px max(4vw,24px) 8px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--navy);padding-bottom:12px;margin-bottom:26px;}
+  .sec-head .no{font-size:13px;color:var(--gold);letter-spacing:2px;font-weight:600;}
+  .sec-head h2{font-size:22px;letter-spacing:2px;color:var(--navy);font-weight:600;}
+  .sec-head .en{margin-left:auto;font-size:11px;letter-spacing:3px;color:#a8b0ba;white-space:nowrap;}
+  .mark{
+    background:linear-gradient(transparent 60%, rgba(184,147,74,.28) 60%);
+    padding:0 2px;font-weight:600;
+  }
+  .note{
+    display:inline-block;font-size:12.5px;color:var(--gold);
+    border:1px dashed var(--gold);padding:2px 10px;border-radius:2px;
+    transform:rotate(-.6deg);margin-left:8px;vertical-align:middle;white-space:nowrap;
+  }
+
+  /* ===== 钻级评定 ===== */
+  .rating-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;}
+  @media (max-width:820px){.rating-grid{grid-template-columns:1fr;}}
+  .rating-main{
+    background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);
+    padding:26px 28px;box-shadow:0 2px 10px rgba(22,50,79,.05);
+  }
+  .diamond-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .diamonds{font-size:26px;letter-spacing:4px;color:var(--gold);}
+  .diamonds .dim{color:#d8dce2;}
+  .rating-main h3{font-size:19px;color:var(--navy);letter-spacing:1px;}
+  .rating-main .type{font-size:13px;color:var(--gray);}
+  .score-line{display:flex;align-items:baseline;gap:10px;margin:16px 0 6px;}
+  .score-line .big{font-size:42px;font-weight:700;color:var(--navy);line-height:1;}
+  .score-line .lab{font-size:13px;color:var(--gray);}
+  .score-line .cnt{font-size:12.5px;color:#a8b0ba;margin-left:auto;}
+  .bars{margin-top:14px;display:grid;gap:9px;}
+  .bar-row{display:grid;grid-template-columns:44px 1fr 40px;align-items:center;gap:10px;font-size:13px;}
+  .bar-row .name{color:var(--gray);}
+  .bar-row .val{text-align:right;color:var(--navy);font-weight:600;}
+  .bar{height:6px;background:#edf0f4;border-radius:3px;overflow:hidden;}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--navy-2),var(--gold));border-radius:3px;}
+  .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .tag{font-size:12.5px;background:var(--accent-bg);color:var(--navy-2);padding:4px 12px;border-radius:2px;border:1px solid #dce5ee;}
+  .rank{
+    background:#fff;border:1px solid var(--line);padding:26px 28px;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .rank-item{display:flex;gap:14px;align-items:flex-start;}
+  .rank-item .ico{
+    flex:none;width:40px;height:40px;border:1.5px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gold);
+  }
+  .rank-item b{display:block;color:var(--navy);font-size:14.5px;}
+  .rank-item p{font-size:13px;color:var(--gray);}
+
+  /* ===== 简介 ===== */
+  .intro{
+    background:#fff;border:1px solid var(--line);padding:30px 32px;
+    box-shadow:0 2px 10px rgba(22,50,79,.05);
+  }
+  .intro p{margin-bottom:14px;text-align:justify;color:#3a4046;}
+  .intro p:last-child{margin-bottom:0;}
+  .intro .lead{font-size:16px;color:var(--navy);font-weight:600;}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px;}
+  @media (max-width:760px){.facts{grid-template-columns:repeat(2,1fr);}}
+  .fact{background:var(--accent-bg);padding:16px 18px;text-align:center;}
+  .fact b{display:block;font-size:22px;color:var(--navy);font-weight:700;}
+  .fact span{font-size:12px;color:var(--gray);letter-spacing:1px;}
+
+  /* ===== 设施 ===== */
+  .fac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:820px){.fac-grid{grid-template-columns:1fr;}}
+  .fac{
+    background:#fff;border:1px solid var(--line);padding:20px 22px;
+    border-left:3px solid var(--navy);
+  }
+  .fac h3{font-size:15.5px;color:var(--navy);margin-bottom:8px;letter-spacing:1px;}
+  .fac p{font-size:13px;color:var(--gray);}
+
+  /* ===== 图集 ===== */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  @media (max-width:820px){.gallery{grid-template-columns:repeat(2,1fr);}}
+  .ph{
+    position:relative;overflow:hidden;background:#dfe3e8;aspect-ratio:4/3;
+    border:1px solid var(--line);
+  }
+  .ph img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease;}
+  .ph:hover img{transform:scale(1.06);}
+  .ph.wide{grid-column:span 2;aspect-ratio:8/3;}
+  .ph .cap{
+    position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(transparent,rgba(15,32,50,.78));
+    color:#fff;font-size:12px;letter-spacing:1px;padding:22px 10px 8px;
+    opacity:0;transition:.3s;
+  }
+  .ph:hover .cap{opacity:1;}
+
+  /* ===== 交通 ===== */
+  .traffic{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media (max-width:820px){.traffic{grid-template-columns:1fr;}}
+  .dist-list{background:#fff;border:1px solid var(--line);padding:22px 26px;}
+  .dist-list h3{font-size:15px;color:var(--navy);letter-spacing:1px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:8px;}
+  .dist{display:flex;justify-content:space-between;gap-14px;font-size:13.5px;padding:7px 0;border-bottom:1px dashed #eef0f3;}
+  .dist:last-child{border-bottom:none;}
+  .dist .d{color:var(--navy);font-weight:600;white-space:nowrap;}
+  .dist .n{color:var(--gray);}
+  .addr-box{background:var(--navy);color:#fff;padding:26px 28px;display:flex;flex-direction:column;justify-content:center;gap:10px;}
+  .addr-box .lab{font-size:12px;letter-spacing:3px;color:var(--gold);}
+  .addr-box .addr{font-size:17px;letter-spacing:1px;font-weight:600;line-height:1.6;}
+  .addr-box .tel{font-size:13.5px;color:rgba(255,255,255,.8);}
+  .addr-box .cta{
+    margin-top:10px;display:inline-block;text-align:center;
+    background:var(--gold);color:#fff;padding:10px 18px;font-size:13.5px;letter-spacing:2px;border-radius:2px;
+  }
+
+  /* ===== 口碑 ===== */
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px;}
+  @media (max-width:820px){.quotes{grid-template-columns:1fr;}}
+  .quote{background:#fff;border:1px solid var(--line);padding:20px 24px;position:relative;}
+  .quote::before{content:"\201C";position:absolute;top:2px;left:12px;font-size:44px;color:#dde3ea;font-family:Georgia,serif;line-height:1;}
+  .quote p{font-size:13.5px;color:#3a4046;position:relative;margin-bottom:10px;}
+  .quote .meta{font-size:12px;color:#a8b0ba;}
+  .mention{display:flex;flex-wrap:wrap;gap:10px;}
+  .m-item{background:#fff;border:1px solid var(--line);padding:10px 18px;text-align:center;flex:1;min-width:110px;}
+  .m-item b{display:block;font-size:18px;color:var(--gold);font-weight:700;}
+  .m-item span{font-size:12px;color:var(--gray);}
+
+  footer{
+    margin-top:64px;background:var(--navy);color:rgba(255,255,255,.65);
+    text-align:center;padding:26px 20px;font-size:12.5px;letter-spacing:1px;line-height:2;
+  }
+  footer b{color:#fff;letter-spacing:2px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">畔山·隐舍 PANSHANYINSHE</span>
+  <a href="#rating">钻级评定</a>
+  <a href="#intro">酒店简介</a>
+  <a href="#fac">设施服务</a>
+  <a href="#gallery">实景图集</a>
+  <a href="#traffic">交通位置</a>
+  <a href="#review">住客口碑</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="tagline">LUSHAN · GULING · XIAOTIANCHI</p>
+    <h1>庐山畔山隐舍度假酒店<span style="font-size:.5em;font-weight:400;">（庐山牯岭镇小天池店）</span></h1>
+    <p class="en">LuShan PanShanYinShe Resort Hotel</p>
+    <div class="hero-badges">
+      <span class="badge gold">携程 4 星 · 高档型</span>
+      <span class="badge score"><b>4.7</b> 分 / 1189 条点评</span>
+      <span class="badge">¥241 起</span>
+      <span class="badge">宠物友好</span>
+      <span class="badge">小天池观日出 · 望江亭赏晚霞</span>
+    </div>
+    <p class="hero-note">世界文化遗产 · 国家 5A 级景区 庐山 ｜ 山顶北门入口，距牯岭街步行约 15 分钟，闹中取静</p>
+  </div>
+</header>
+
+<!-- ============ 01 钻级评定 ============ -->
+<section id="rating">
+  <div class="sec-head">
+    <span class="no">01</span>
+    <h2>携程钻级评定<span class="note">数据来源：携程酒店频道</span></h2>
+    <span class="en">CTRIP RATING</span>
+  </div>
+  <div class="rating-grid">
+    <div class="rating-main">
+      <div class="diamond-row">
+        <div>
+          <h3>庐山畔山隐舍度假酒店</h3>
+          <p class="type">钻级评定：<span class="mark">4 星 / 高档型</span> ｜ 品牌：长天（江西长天集团）</p>
+        </div>
+        <div class="diamonds">◆◆◆◆<span class="dim">◇</span></div>
+      </div>
+      <div class="score-line">
+        <span class="big">4.7</span>
+        <span class="lab">超棒<br>综合评分</span>
+        <span class="cnt">共 1,189 条真实住客点评</span>
+      </div>
+      <div class="bars">
+        <div class="bar-row"><span class="name">卫生</span><span class="bar"><i style="width:94%"></i></span><span class="val">4.7</span></div>
+        <div class="bar-row"><span class="name">设施</span><span class="bar"><i style="width:92%"></i></span><span class="val">4.6</span></div>
+        <div class="bar-row"><span class="name">环境</span><span class="bar"><i style="width:94%"></i></span><span class="val">4.7</span></div>
+        <div class="bar-row"><span class="name">服务</span><span class="bar"><i style="width:94%"></i></span><span class="val">4.7</span></div>
+      </div>
+      <div class="tag-cloud">
+        <span class="tag">狗狗友好</span><span class="tag">宠物友好</span><span class="tag">上榜酒店</span><span class="tag">徒步观光</span><span class="tag">无障碍友好</span><span class="tag">亲子友好</span>
+      </div>
+    </div>
+    <div class="rank">
+      <div class="rank-item">
+        <div class="ico">🏆</div>
+        <div><b>江西美食酒店榜 · 第 8 名</b><p>携程官方榜单收录，餐饮口碑获住客广泛认可。</p></div>
+      </div>
+      <div class="rank-item">
+        <div class="ico">🌄</div>
+        <div><b>官方推荐语：小天池观日出 · 望江亭赏晚霞</b><p>紧邻小天池（约 424 米），步行约 10 分钟可达望江亭，观日出云海无需打车。</p></div>
+      </div>
+      <div class="rank-item">
+        <div class="ico">🐕</div>
+        <div><b>宠物友好酒店</b><p>明确支持携宠入住，适合带毛孩子一起登山徒步的家庭。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 酒店简介 ============ -->
+<section id="intro">
+  <div class="sec-head">
+    <span class="no">02</span>
+    <h2>酒店简介</h2>
+    <span class="en">INTRODUCTION</span>
+  </div>
+  <div class="intro">
+    <p class="lead">庐山畔山隐舍度假酒店座落在被列为世界文化遗产、国家 5A 级景区的——庐山。</p>
+    <p>酒店位于<span class="mark">庐山山顶北门入口</span>，距牯岭街步行十五分钟，交通便利、闹中取静，可近观小天池、望江亭，远眺鄱阳美景。酒店<span class="mark">占地面积 6,000 平方米</span>，拥有各类客房，包括单间、标间、套房、家庭亲子房。</p>
+    <p>客房内设施设备齐全：特色沙发、无线网络、<span class="mark">地暖</span>、智能电视、遮光窗帘、电吹风、冰箱、保险柜、功夫茶具、欢迎礼品等。餐饮设施包含三个大包厢及中西式自助餐，<span class="mark">可同时容纳 150 人用餐</span>；并设有综合面积 100 平方米的多功能会议厅，配备会议音响系统、投影仪等影音设备。</p>
+    <p>24 小时全天候服务，让每一位客人都能感受到家一般的温暖与舒适——在此您可以与家人朋友欢聚一堂，尽享美景。</p>
+    <div class="facts">
+      <div class="fact"><b>6,000㎡</b><span>酒店占地面积</span></div>
+      <div class="fact"><b>150 人</b><span>餐厅同时容纳</span></div>
+      <div class="fact"><b>100㎡</b><span>多功能会议厅</span></div>
+      <div class="fact"><b>24 小时</b><span>全天候前台服务</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 设施服务 ============ -->
+<section id="fac">
+  <div class="sec-head">
+    <span class="no">03</span>
+    <h2>设施与服务亮点</h2>
+    <span class="en">FACILITIES &amp; SERVICES</span>
+  </div>
+  <div class="fac-grid">
+    <div class="fac"><h3>🛏 客房配置</h3><p>单间 / 标间 / 套房 / 家庭亲子房；地暖、智能电视、功夫茶具、房内保险箱、迷你吧、独立卫浴。</p></div>
+    <div class="fac"><h3>🍽 餐饮</h3><p>畔山自助餐厅 + 隐舍中餐厅，中西式自助餐与三大包厢，早餐口碑突出（"早餐很棒"提及 191 次）。</p></div>
+    <div class="fac"><h3>🏢 会议宴会</h3><p>100㎡ 多功能会议厅，配音响系统与投影仪，支持婚宴服务，可接待团队与商务活动。</p></div>
+    <div class="fac"><h3>🚐 接送与出行</h3><p>接站 / 送站服务、代客泊车、充电车位、租车服务、旅游票务——"提供接送"被频繁好评。</p></div>
+    <div class="fac"><h3>👪 亲子与休闲</h3><p>儿童看护、儿童餐椅、迷你高尔夫、棋牌室、图书室、足浴按摩室、烧烤区、花园野餐区。</p></div>
+    <div class="fac"><h3>🎿 特色服务</h3><p>滑雪用具寄存与设备租赁、私人管家、VIP 通道入住、洗衣房、无障碍客房与通道。</p></div>
+  </div>
+</section>
+
+<!-- ============ 04 实景图集 ============ -->
+<section id="gallery">
+  <div class="sec-head">
+    <span class="no">04</span>
+    <h2>实景图集<span class="note">实拍 · 2026</span></h2>
+    <span class="en">GALLERY</span>
+  </div>
+  <div class="gallery">
+    <div class="ph wide"><img src="hotel-images/09-facade.jpg" alt="酒店主楼外观"><div class="cap">酒店主楼 · A 座 正门外观</div></div>
+    <div class="ph"><img src="hotel-images/01-lobby.jpg" alt="大堂"><div class="cap">挑高大堂 · 前台接待区</div></div>
+    <div class="ph"><img src="hotel-images/10-restaurant.jpg" alt="餐厅楼"><div class="cap">餐厅楼 · 绿顶欧式建筑</div></div>
+    <div class="ph"><img src="hotel-images/03-twin-room.jpg" alt="双床房"><div class="cap">林夕臻选双床房</div></div>
+    <div class="ph"><img src="hotel-images/06-twin-room-2.jpg" alt="双床房"><div class="cap">双床房 · 拱窗山景</div></div>
+    <div class="ph"><img src="hotel-images/05-room-entry.jpg" alt="客房入口"><div class="cap">客房入口 · 干湿分离盥洗区</div></div>
+    <div class="ph"><img src="hotel-images/02-bathroom.jpg" alt="卫生间"><div class="cap">独立卫浴 · 淋浴间隔断</div></div>
+    <div class="ph"><img src="hotel-images/07-meeting-room.jpg" alt="会议室"><div class="cap">多功能会议厅</div></div>
+    <div class="ph"><img src="hotel-images/04-game-room.jpg" alt="棋牌室"><div class="cap">棋牌活动室</div></div>
+    <div class="ph wide"><img src="hotel-images/08-street.jpg" alt="酒店街区"><div class="cap">酒店街区 · 庐山山顶小天池路</div></div>
+  </div>
+</section>
+
+<!-- ============ 05 交通位置 ============ -->
+<section id="traffic">
+  <div class="sec-head">
+    <span class="no">05</span>
+    <h2>交通与位置</h2>
+    <span class="en">LOCATION</span>
+  </div>
+  <div class="traffic">
+    <div class="dist-list">
+      <h3>距离参考（数据来自携程）</h3>
+      <div class="dist"><span class="n">庐山北门牌</span><span class="d">189 米</span></div>
+      <div class="dist"><span class="n">望江亭</span><span class="d">297 米</span></div>
+      <div class="dist"><span class="n">诺那塔院 · 小天池</span><span class="d">424 米</span></div>
+      <div class="dist"><span class="n">庐山风景名胜区</span><span class="d">约 182 米</span></div>
+      <div class="dist"><span class="n">牯岭街</span><span class="d">步行约 15 分钟</span></div>
+      <div class="dist"><span class="n">九江庐山机场</span><span class="d">36.8 千米</span></div>
+      <div class="dist"><span class="n">九江站</span><span class="d">32.7 千米</span></div>
+      <div class="dist"><span class="n">庐山站</span><span class="d">38.3 千米</span></div>
+    </div>
+    <div class="addr-box">
+      <span class="lab">ADDRESS</span>
+      <span class="addr">江西省庐山市 庐山风景区<br>小天池路 17 号</span>
+      <span class="tel">☎ 0792-8299099 ｜ 商圈：庐山山上（牯岭镇）</span>
+      <a class="cta" href="https://hotels.ctrip.com/hotels/detail/?hotelId=78155870" target="_blank">前往携程查看详情与订房 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 住客口碑 ============ -->
+<section id="review">
+  <div class="sec-head">
+    <span class="no">06</span>
+    <h2>住客口碑</h2>
+    <span class="en">GUEST REVIEWS</span>
+  </div>
+  <div class="quotes">
+    <div class="quote">
+      <p>酒店前台服务非常好，接送服务非常及时，酒店的装修风格很好看，新颖的很，真不错，很推荐这家酒店，房间的空调也好用。</p>
+      <span class="meta">118509**** ｜ 2026-07 入住</span>
+    </div>
+    <div class="quote">
+      <p>这场庐山之旅给我的感觉非常不错，酒店非常舒适，整体环境也非常干净，酒店接待服务不错，接送也很给力，房间的除湿设备和空调也很好用！</p>
+      <span class="meta">118284**** ｜ 2026-08 入住</span>
+    </div>
+  </div>
+  <div class="mention">
+    <div class="m-item"><b>1,174</b><span>值得推荐</span></div>
+    <div class="m-item"><b>198</b><span>环境优雅</span></div>
+    <div class="m-item"><b>191</b><span>早餐很棒</span></div>
+    <div class="m-item"><b>184</b><span>提供接送</span></div>
+    <div class="m-item"><b>135</b><span>前台热情</span></div>
+    <div class="m-item"><b>74</b><span>餐厅很棒</span></div>
+  </div>
+</section>
+
+<footer>
+  <b>庐山畔山隐舍度假酒店（庐山牯岭镇小天池店）</b><br>
+  携程 4 星 · 高档型 ｜ 评分 4.7 / 1,189 条点评 ｜ 数据来源：携程酒店频道 · 整理于 2026-10-21<br>
+  本页为资料整理知识卡，预订请以携程官方页面实时信息为准
+</footer>
+
+</body>
+</html>
